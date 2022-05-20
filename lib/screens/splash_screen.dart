@@ -1,57 +1,77 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:splash_screen_view/SplashScreenView.dart';
 import 'package:spotify_api/screens/welcome_screen.dart';
-import 'package:simple_animations/simple_animations.dart';
-import 'package:supercharged/supercharged.dart';
-import 'package:supercharged_dart/supercharged_dart.dart';
-import 'dart:math';
+import '../animations.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen(this.numberOfParticles ,{Key? key}) : super(key: key);
-  final int numberOfParticles;
-
-
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> with WidgetsBindingObserver{
-  final List<ParticleModel> particles = [];
 
   @override
-  void initState() {
-    widget.numberOfParticles.times(() => particles.add(ParticleModel()));
-    WidgetsBinding.instance!.addObserver(this);
+  void initState(){
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance!.removeObserver(this);
-    super.dispose();
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    //print("-didChangeAppLifecycleState-" + state.toString());
-    if (state == AppLifecycleState.resumed) {
-      // particles.forEach((particle) {
-      for (var particle in particles) {
-        particle.restart();
-        particle.shuffle();
-      }
-    }
+    Timer(Duration(seconds: 3), (){
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Welcome()));
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return SplashScreenView(
-      navigateRoute: const Welcome(),
-      duration: 2000,
-      imageSize: 130,
-      imageSrc: "assets/images/logo.png",
-      backgroundColor: Colors.blueGrey,
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Positioned.fill(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Color(0xFF1664A3), Color(0xFF2196F3)],
+                ),
+              ),
+            ),
+          ),
+          Positioned.fill(
+            child: const AnimationBubble(50),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[Image.asset("assets/images/logo.png"),]
+          ),
+          Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: const <Widget>[
+                CircularProgressIndicator(color: Colors.white),
+                Text(
+                  "From",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(height: 6,),
+                Text(
+                  "ISC",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Padding(padding: EdgeInsets.only(bottom: 40.0)),
+              ]
+          ),
+        ],
+      ),
     );
   }
 }

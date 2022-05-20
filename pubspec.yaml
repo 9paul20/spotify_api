@@ -37,6 +37,10 @@ dependencies:
   splash_screen_view: ^3.0.0
   simple_animations: ^4.0.2
   supercharged: ^2.1.1
+  rxdart: ^0.27.3
+  http: ^0.13.4
+  flutter_bloc: ^8.0.1
+
 
 dev_dependencies:
   flutter_test:
