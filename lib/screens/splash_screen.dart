@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> with WidgetsBindingObserver
   @override
   void initState(){
     super.initState();
-    Timer(Duration(seconds: 3), (){
+    Timer(Duration(seconds: 5), (){
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Welcome()));
     });

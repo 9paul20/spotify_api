@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../const/variable_const.dart';
+import '../screens/home.dart';
 
 class LoginCredentials extends StatelessWidget {
   const LoginCredentials({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class LoginCredentials extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Please Log In',
+            'Inicie con sus credenciales',
             style: TextStyle(
               fontSize: 24,
             ),
@@ -36,7 +37,7 @@ class LoginCredentials extends StatelessWidget {
                     vertical: appPadding * 0.75,
                     horizontal: appPadding),
                 fillColor: white,
-                hintText: 'Email',
+                hintText: 'Correo',
                 suffixIcon: Icon(
                   Icons.email_outlined,
                   size: 25.0,
@@ -61,7 +62,7 @@ class LoginCredentials extends StatelessWidget {
                     vertical: appPadding * 0.75,
                     horizontal: appPadding),
                 fillColor: Colors.white,
-                hintText: 'Password',
+                hintText: 'Contraseña',
                 suffixIcon: Icon(
                   Icons.lock_outline,
                   size: 25.0,
@@ -73,30 +74,18 @@ class LoginCredentials extends StatelessWidget {
           SizedBox(
             height: size.height * 0.04,
           ),
-          Center(
+          /*Center(
             child: Text(
               'Forget Password!',
               style: TextStyle(
                   fontSize: 18, color: black.withOpacity(0.4)),
             ),
-          ),
+          ),*/
           SizedBox(
             height: size.height * 0.04,
           ),
           InkWell(
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                //builder: (context) => HomeScreen(),
-                builder: (context) => Scaffold(
-                  body: Column(
-                    children: const [
-                      Text("Hello"),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Home())),
             child: Material(
                 elevation: 10.0,
                 shadowColor: primary,
@@ -107,7 +96,7 @@ class LoginCredentials extends StatelessWidget {
                   height: size.width * 0.15,
                   child: const Center(
                     child: Text(
-                      'Log In',
+                      'Iniciar Sesión',
                       style: TextStyle(
                         color: white,
                         fontSize: 18,

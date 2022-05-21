@@ -18,13 +18,13 @@ class _AnimationBubbleState extends State<AnimationBubble> with WidgetsBindingOb
   @override
   void initState() {
     widget.numberOfParticles.times(() => particles.add(ParticleModel()));
-    WidgetsBinding.instance!.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance!.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
