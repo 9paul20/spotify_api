@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../models/recipie.dart';
+import '../models/recipe.dart';
 
-import '../models/recipie_api.dart';
-import '../widgets/recipe_card.dart';
+import '../models/recipe_api.dart';
+import '../widgets/home/recipe_card.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -32,14 +32,15 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF1664A3),
         title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            //mainAxisAlignment: MainAxisAlignment.center,
             children:[
               Icon(Icons.restaurant_menu),
-              SizedBox(width: 10),
+              SizedBox(width: 6),
               Text('Recetas'),
             ]
-        )
+        ),
       ),
         body: _isLoading
             ? Center(child: CircularProgressIndicator())
@@ -47,12 +48,11 @@ class _HomeState extends State<Home> {
           itemCount: _recipes!.length,
           itemBuilder: (context, index) {
             return RecipeCard(
-                title: _recipes![index].name!,
-                cookTime: _recipes![index].totalTime!,
-                rating: _recipes![index].rating.toString(),
-              thumbnailUrl: _recipes![index].images!,);
+                recipe: _recipes![index],
+            );
           },
-        )
+        ),
+      backgroundColor: Color(0xFFF1F1F1),
     );
   }
 }

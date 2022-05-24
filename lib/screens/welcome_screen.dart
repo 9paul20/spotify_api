@@ -30,6 +30,7 @@ class _WelcomeState extends State<Welcome> {
           ],
         ),
       ),
+      backgroundColor: Color(0xFFF1F1F1),
     );
   }
 }
