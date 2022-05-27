@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../models/recipe.dart';
+import '../../screens/details.dart';
 
 class RecipeCard extends StatelessWidget {
   RecipeCard({Key? key, this.recipe}) : super(key: key);
@@ -12,7 +13,7 @@ class RecipeCard extends StatelessWidget {
         onTap: (){
           Navigator.pushNamed(context, '/details', arguments: {
             //
-            'name': recipe!.name!,
+            'map': recipe!,
           });
         },
       child: Container(

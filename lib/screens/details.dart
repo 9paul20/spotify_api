@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../const/variable_const.dart';
 import '../models/recipe.dart';
+import '../widgets/details/body.dart';
 
-class Details extends StatelessWidget {
-  const Details({Key? key, this.recipe}) : super(key: key);
-    final Recipe? recipe;
+class Details extends StatefulWidget {
+  const Details({Key? key}) : super(key: key);
+
+  @override
+  State<Details> createState() => _DetailsState();
+}
+
+class _DetailsState extends State<Details> {
+  Recipe? recipe;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final recipeBook =
+      ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    recipe = recipeBook['map'];
+
     return Scaffold(
-      // each product have a color
-      /*
-      backgroundColor: product.color,
       appBar: buildAppBar(context),
+      body: Body(recipe: recipe),
+      /*
       body: Body(product: product),
       */
     );
@@ -21,8 +37,8 @@ class Details extends StatelessWidget {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-      /*
-      backgroundColor: product.color,
+
+      backgroundColor: Color(0xFF1664A3),
       elevation: 0,
       leading: IconButton(
         icon: SvgPicture.asset(
@@ -42,7 +58,6 @@ class Details extends StatelessWidget {
         ),
         SizedBox(width: appPadding / 2)
       ],
-       */
     );
   }
 }
