@@ -18,10 +18,21 @@ class ColorAndSize extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("Color"),
-              Row(
-                children: <Widget>[
-                ],
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(color: textColor),
+                  children: [
+                    TextSpan(text: "Calificación\n"),
+                    TextSpan(
+                      //text: "${product.size} cm",
+                      text: "${recipe!.rating}",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline5
+                          ?.copyWith(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
               ),
             ],
           ),
@@ -31,10 +42,10 @@ class ColorAndSize extends StatelessWidget {
             text: TextSpan(
               style: TextStyle(color: textColor),
               children: [
-                TextSpan(text: "Size\n"),
+                TextSpan(text: "Para\n"),
                 TextSpan(
                   //text: "${product.size} cm",
-                  text: "16 cm",
+                  text: "${recipe!.numberOfServings} personas",
                   style: Theme.of(context)
                       .textTheme
                       .headline5

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../const/variable_const.dart';
+import '../../const/variable_const.dart';
 import 'curve.dart';
 
 class BackgroundImage extends StatelessWidget {

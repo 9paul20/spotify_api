@@ -3,7 +3,9 @@ import 'package:spotify_api/models/recipe.dart';
 import 'package:spotify_api/widgets/details/product_title_with_image.dart';
 
 import '../../const/variable_const.dart';
+import '../../models/ingredients.dart';
 import 'color_and_size.dart';
+import 'description.dart';
 
 class Body extends StatelessWidget {
   final Recipe? recipe;
@@ -23,7 +25,6 @@ class Body extends StatelessWidget {
             ),
             image: NetworkImage(
                 "${recipe!.images}"
-                  //"https://lh3.googleusercontent.com/-REdY9V2RJJvv5q4C_MqNW137nWg-llv2nC6fw_pw6axtevrmIAVLLTd3_0WHni-L3Sz1Poq8dFoAm7f21CwAAfpl9tj4sHhUGE=s360"
                 ),
             fit: BoxFit.cover,
           ),
@@ -52,9 +53,8 @@ class Body extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         ColorAndSize(recipe: recipe),
-                        Text("I'm the recipe: ${recipe!.name}"),
                         SizedBox(height: appPadding / 2),
-                        //Description(recipe: recipe),
+                        Description(recipe: recipe),
                         SizedBox(height: appPadding / 2),
                         SizedBox(height: appPadding / 2),
                       ],

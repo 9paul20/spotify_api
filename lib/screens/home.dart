@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../models/ingredients.dart';
 import '../models/recipe.dart';
 
 import '../models/recipe_api.dart';
@@ -34,7 +35,6 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Color(0xFF1664A3),
         title: Row(
-            //mainAxisAlignment: MainAxisAlignment.center,
             children:[
               Icon(Icons.restaurant_menu),
               SizedBox(width: 6),
@@ -42,13 +42,14 @@ class _HomeState extends State<Home> {
             ]
         ),
       ),
-        body: _isLoading
+        body:
+        _isLoading
             ? Center(child: CircularProgressIndicator())
             : ListView.builder(
           itemCount: _recipes!.length,
           itemBuilder: (context, index) {
             return RecipeCard(
-                recipe: _recipes![index],
+              recipe: _recipes![index],
             );
           },
         ),

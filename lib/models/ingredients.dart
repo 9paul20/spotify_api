@@ -6,7 +6,7 @@ class Ingredients{
   final String? ingredient;
   final String? id;
   final String? remainder;
-  final int? quantity;
+  final double? quantity;
   final String? wholeLine;
 
 
@@ -31,7 +31,7 @@ class Ingredients{
       ingredient: map['ingredient'] as String,
       id: map['id'] as String,
       remainder: map['remainder'] as String,
-      quantity: map['quantity'] as int,
+      quantity: map['quantity'] ?? 0.0,
       wholeLine: map['wholeLine'] as String,
 
     );
@@ -52,8 +52,8 @@ class Ingredients{
   }
 
   static List<Ingredients> ingredientsFromSnapshot(List snapshot) {
-    return snapshot.map((data) {
-      return Ingredients.fromMap(data);
+    return snapshot.map((data2) {
+      return Ingredients.fromMap(data2);
     }).toList();
   }
 

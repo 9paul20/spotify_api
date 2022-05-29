@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../models/recipe.dart';
-import '../../screens/details.dart';
 
 class RecipeCard extends StatelessWidget {
   RecipeCard({Key? key, this.recipe}) : super(key: key);

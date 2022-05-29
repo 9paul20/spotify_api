@@ -19,10 +19,6 @@ class ProductTitleWithImage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Receta: ",
-            style: TextStyle(color: Colors.white),
-          ),
-          Text(
             recipe!.name!,
             style: Theme.of(context)
                 .textTheme
@@ -35,7 +31,7 @@ class ProductTitleWithImage extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: "Tiempo Receta\n"),
+                    TextSpan(text: "Tiempo De Prepariación\n"),
                     TextSpan(
                       text: "${recipe!.totalTime!}",
                       style: Theme.of(context).textTheme.headline4?.copyWith(

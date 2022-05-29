@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_api/components/circle.dart';
-import 'package:spotify_api/components/login_credentials.dart';
+import 'package:spotify_api/widgets/login/circle.dart';
+import 'package:spotify_api/widgets/login/login_credentials.dart';
 
-import '../components/background_image.dart';
+import '../widgets/login/background_image.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);

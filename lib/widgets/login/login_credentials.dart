@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../const/variable_const.dart';
-import '../screens/home.dart';
+import '../../const/variable_const.dart';
+import '../../screens/home.dart';
 
 class LoginCredentials extends StatelessWidget {
   const LoginCredentials({Key? key}) : super(key: key);
